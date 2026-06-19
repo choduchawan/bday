@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>For You ❤️</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&family=Caveat:wght@400;700&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
 
@@ -15,13 +15,12 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Poppins',sans-serif;
 }
 
 body{
-background:black;
-color:white;
+font-family:'Poppins',sans-serif;
 overflow-x:hidden;
+background:#fff;
 }
 
 section{
@@ -30,13 +29,9 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-padding:40px 20px;
+padding:30px;
 position:relative;
-}
-
-h1,h2{
-font-weight:600;
-letter-spacing:1px;
+overflow:hidden;
 }
 
 .hidden{
@@ -44,12 +39,7 @@ display:none;
 }
 
 button{
-padding:14px 30px;
 border:none;
-border-radius:40px;
-background:white;
-color:black;
-font-size:16px;
 cursor:pointer;
 transition:0.3s;
 }
@@ -58,28 +48,126 @@ button:hover{
 transform:scale(1.05);
 }
 
-#intro{
-background:linear-gradient(to bottom,#000,#111);
+/* FLOATING PETALS */
+
+.petals{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+z-index:999;
+overflow:hidden;
+}
+
+.petal{
+position:absolute;
+top:-10vh;
+font-size:24px;
+animation:fall linear infinite;
+opacity:0.8;
+}
+
+@keyframes fall{
+0%{transform:translateY(-10vh) rotate(0deg);}
+100%{transform:translateY(110vh) rotate(360deg);}
+}
+
+/* WELCOME */
+
+#welcome{
+background:white;
 text-align:center;
 }
 
+#welcome h1{
+font-family:'Dancing Script',cursive;
+font-size:52px;
+margin-bottom:40px;
+color:#333;
+}
+
+.welcome-buttons{
+display:flex;
+gap:60px;
+}
+
+.yes-btn{
+font-size:42px;
+background:none;
+color:#b26ad6;
+font-family:'Dancing Script',cursive;
+font-weight:bold;
+}
+
+.no-btn{
+font-size:42px;
+background:none;
+color:red;
+font-weight:800;
+}
+
+/* NO SCREEN */
+
+#noScreen{
+background:#fff6e7;
+text-align:center;
+}
+
+#noScreen h1{
+font-size:50px;
+margin-top:30px;
+}
+
+/* YES SCREEN */
+
+#yesScreen{
+background:linear-gradient(135deg,#d8b4fe,#818cf8);
+text-align:center;
+color:white;
+}
+
+#yesScreen h1{
+font-size:42px;
+max-width:700px;
+line-height:1.4;
+}
+
+.next-btn{
+margin-top:40px;
+padding:14px 40px;
+border-radius:40px;
+font-size:22px;
+background:white;
+color:#7e22ce;
+font-weight:bold;
+}
+
+/* GIFT */
+
+#giftScreen{
+background:linear-gradient(145deg,#6b0000,#b01030,#6b0000);
+color:white;
+}
+
 .gift-box{
-width:170px;
-height:170px;
-background:#ff4d6d;
+width:180px;
+height:180px;
+background:#fff5f0;
 position:relative;
 border-radius:15px;
 cursor:pointer;
+margin-top:40px;
 animation:float 2s infinite ease-in-out;
-box-shadow:0 0 30px rgba(255,77,109,0.5);
 }
 
 .gift-box::before{
 content:'';
 position:absolute;
 width:30px;
-height:170px;
-background:white;
+height:180px;
+background:#c41e3a;
 left:50%;
 transform:translateX(-50%);
 }
@@ -88,8 +176,8 @@ transform:translateX(-50%);
 content:'';
 position:absolute;
 height:30px;
-width:170px;
-background:white;
+width:180px;
+background:#c41e3a;
 top:50%;
 transform:translateY(-50%);
 }
@@ -98,6 +186,50 @@ transform:translateY(-50%);
 0%{transform:translateY(0px);}
 50%{transform:translateY(-10px);}
 100%{transform:translateY(0px);}
+}
+
+#giftScreen h1{
+font-family:'Dancing Script',cursive;
+font-size:60px;
+text-align:center;
+}
+
+/* HUB */
+
+#hub{
+background:linear-gradient(145deg,#6b0000,#b01030,#6b0000);
+}
+
+.hub-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:25px;
+margin-top:30px;
+}
+
+.hub-card{
+width:140px;
+height:140px;
+background:white;
+border-radius:25px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+font-size:22px;
+font-weight:bold;
+}
+
+.hub-card span{
+font-size:50px;
+margin-bottom:10px;
+}
+
+/* MUSIC */
+
+#music{
+background:#080820;
+color:white;
 }
 
 .music-grid{
@@ -111,14 +243,9 @@ margin-top:40px;
 
 .song-card{
 background:#111;
-border-radius:20px;
+border-radius:25px;
 overflow:hidden;
-box-shadow:0 0 20px rgba(255,255,255,0.08);
-transition:0.4s;
-}
-
-.song-card:hover{
-transform:translateY(-8px);
+box-shadow:0 0 25px rgba(255,255,255,0.08);
 }
 
 .song-card img{
@@ -131,13 +258,15 @@ object-fit:cover;
 padding:18px;
 }
 
-.song-info h3{
-margin-bottom:8px;
-}
-
 audio{
 width:100%;
-margin-top:10px;
+margin-top:12px;
+}
+
+/* PHOTOS */
+
+#photos{
+background:linear-gradient(145deg,#6b0000,#b01030,#6b0000);
 }
 
 .photos-grid{
@@ -154,60 +283,39 @@ width:100%;
 height:380px;
 object-fit:cover;
 border-radius:20px;
-transition:0.4s;
 }
 
-.photos-grid img:hover{
-transform:scale(1.03);
+/* LETTER */
+
+#letter{
+background:#fff5ef;
 }
 
-.letter{
-max-width:700px;
-background:#111;
+.letter-box{
+max-width:750px;
+background:white;
 padding:35px;
 border-radius:25px;
+box-shadow:0 0 25px rgba(0,0,0,0.08);
 line-height:1.9;
 font-size:18px;
-box-shadow:0 0 25px rgba(255,255,255,0.08);
 }
 
-.letter img{
+.letter-box img{
 width:100%;
 border-radius:20px;
 margin-bottom:20px;
 }
 
-.petals{
-position:fixed;
-width:100%;
-height:100%;
-pointer-events:none;
-top:0;
-left:0;
-overflow:hidden;
-z-index:999;
-}
-
-.petal{
-position:absolute;
-top:-20px;
-font-size:20px;
-animation:fall linear infinite;
-opacity:0.8;
-}
-
-@keyframes fall{
-0%{transform:translateY(-10vh) rotate(0deg);}
-100%{transform:translateY(110vh) rotate(360deg);}
-}
-
 /* UPDATED ENDING */
+
 #ending{
 background-image:url('finalphoto.jpg');
 background-size:cover;
 background-position:center;
 background-repeat:no-repeat;
 text-align:center;
+color:white;
 position:relative;
 }
 
@@ -228,147 +336,141 @@ z-index:2;
 }
 
 #ending h1{
-font-size:65px;
+font-size:60px;
 margin-bottom:20px;
-text-shadow:0 0 20px rgba(255,255,255,0.3);
 }
 
 #ending p{
 font-size:22px;
-line-height:1.8;
 opacity:1;
 }
+
+/* EASTER EGG */
 
 #easterEgg{
 position:fixed;
 bottom:20px;
 right:20px;
-font-size:14px;
 opacity:0;
 transition:0.4s;
-cursor:pointer;
+font-size:18px;
+color:white;
 }
 
 #easterEgg.show{
 opacity:1;
 }
 
+.back-btn{
+position:absolute;
+top:20px;
+left:20px;
+padding:10px 20px;
+border-radius:30px;
+background:white;
+font-weight:bold;
+}
+
 </style>
 </head>
+
 <body>
 
 <div class="petals"></div>
 
-<section id="intro">
-<h1 style="margin-bottom:20px;font-size:48px;">For You ❤️</h1>
-<p style="margin-bottom:40px;opacity:0.7;">Open the box :)</p>
+<section id="welcome">
+<h1>Are you ready for the surprise?</h1>
+<div class="welcome-buttons">
+<button class="yes-btn" onclick="showScreen('yesScreen')">yes♡</button>
+<button class="no-btn" onclick="showScreen('noScreen')">NO!</button>
+</div>
+</section>
+
+<section id="noScreen" class="hidden">
+<button class="back-btn" onclick="showScreen('welcome')">← Back</button>
+<div style="font-size:120px;">🦆</div>
+<h1>HOW DARE YOU 😡</h1>
+</section>
+
+<section id="yesScreen" class="hidden">
+<h1>
+I AM SORRY I AM NOT NEAR YOU<br>
+BUT I AM SENDING YOU SOMETHING ❤️
+</h1>
+<button class="next-btn" onclick="showScreen('giftScreen')">next →</button>
+</section>
+
+<section id="giftScreen" class="hidden">
+<h1>Here's a gift box for you 🎁</h1>
 <div class="gift-box" onclick="openGift()"></div>
+<p style="margin-top:30px;opacity:0.7;">Click the gift box</p>
 </section>
 
-<section id="musicSection" class="hidden">
+<section id="hub" class="hidden">
+<h1 style="color:white;font-family:'Dancing Script',cursive;font-size:50px;">
+Open Your Gifts 💝
+</h1>
+
+<div class="hub-grid">
+<div class="hub-card" onclick="showScreen('music')">🎵 Music</div>
+<div class="hub-card" onclick="showScreen('photos')">📸 Photos</div>
+<div class="hub-card" onclick="showScreen('letter')">💌 Letter</div>
+<div class="hub-card" onclick="showScreen('ending')">❤️ Ending</div>
+</div>
+</section>
+
+<section id="music" class="hidden">
+<button class="back-btn" onclick="showScreen('hub')">← Back</button>
 <h1>Our Songs 🎵</h1>
-
-<div class="music-grid">
-
-<div class="song-card">
-<img src="photo1.jpg">
-<div class="song-info">
-<h3>Song One</h3>
-<p>our vibe ❤️</p>
-<audio controls>
-<source src="song1.mp3" type="audio/mpeg">
-</audio>
-</div>
-</div>
-
-<div class="song-card">
-<img src="photo2.jpg">
-<div class="song-info">
-<h3>Song Two</h3>
-<p>late night memories 🌙</p>
-<audio controls>
-<source src="song2.mp3" type="audio/mpeg">
-</audio>
-</div>
-</div>
-
-<div class="song-card">
-<img src="photo3.jpg">
-<div class="song-info">
-<h3>Song Three</h3>
-<p>you & me forever ✨</p>
-<audio controls>
-<source src="song3.mp3" type="audio/mpeg">
-</audio>
-</div>
-</div>
-
-</div>
 </section>
 
-<section id="photosSection">
-<h1>Photos 📸</h1>
-<div class="photos-grid">
-<img src="gallery1.jpg">
-<img src="gallery2.jpg">
-<img src="gallery3.jpg">
-<img src="gallery4.jpg">
-</div>
+<section id="photos" class="hidden">
+<button class="back-btn" onclick="showScreen('hub')">← Back</button>
+<h1 style="color:white;">Our Memories 📸</h1>
 </section>
 
-<section id="letterSection">
-<h1 style="margin-bottom:40px;">A Letter For You 💌</h1>
-<div class="letter">
-<img src="holdinghands.jpg">
-<p>
-I don’t even know where to begin honestly.
-But thank you. For staying. ❤️
-</p>
-</div>
+<section id="letter" class="hidden">
+<button class="back-btn" onclick="showScreen('hub')">← Back</button>
+<h1 style="margin-bottom:30px;">A Letter For You 💌</h1>
 </section>
 
-<section id="ending">
-<h1>🎂 Happy Birthday Blossom! 🎂</h1>
+<section id="ending" class="hidden">
+<h1>🎂 Happy Birthday Avni! 🎂</h1>
 <p>
 May your day be filled with laughter,<br>
 love, happiness and countless beautiful memories ✨
 </p>
 </section>
 
+<div id="easterEgg">I love you ❤️</div>
+
 <script>
 
-function openGift(){
-document.getElementById('musicSection').classList.remove('hidden');
-
-window.scrollTo({
-top:window.innerHeight,
-behavior:'smooth'
-});
-
-confetti({
-particleCount:250,
-spread:120,
-origin:{y:0.6}
-});
+function hideAll(){
+document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));
 }
 
-let clickCount=0;
+function showScreen(id){
+hideAll();
+document.getElementById(id).classList.remove('hidden');
+window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function openGift(){
+showScreen('hub');
+confetti({particleCount:300,spread:140,origin:{y:0.6}});
+}
+
+let clicks=0;
 
 document.body.addEventListener('click',()=>{
-
-clickCount++;
-
-if(clickCount===7){
-const egg=document.getElementById('easterEgg');
-egg.classList.add('show');
-egg.innerHTML='I love you ❤️';
+clicks++;
+if(clicks===10){
+document.getElementById('easterEgg').classList.add('show');
 }
-
 });
 
 </script>
-
-<div id="easterEgg">❤️</div>
 
 </body>
 </html>
