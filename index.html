@@ -70,8 +70,12 @@ opacity:0.8;
 }
 
 @keyframes fall{
-0%{transform:translateY(-10vh) rotate(0deg);}
-100%{transform:translateY(110vh) rotate(360deg);}
+0%{
+transform:translateY(-10vh) rotate(0deg);
+}
+100%{
+transform:translateY(110vh) rotate(360deg);
+}
 }
 
 /* WELCOME */
@@ -307,32 +311,12 @@ border-radius:20px;
 margin-bottom:20px;
 }
 
-/* UPDATED ENDING */
+/* ENDING */
 
 #ending{
-background-image:url('finalphoto.jpg');
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-text-align:center;
+background:black;
 color:white;
-position:relative;
-}
-
-#ending::before{
-content:'';
-position:absolute;
-top:0;
-left:0;
-width:100%;
-height:100%;
-background:rgba(0,0,0,0.45);
-}
-
-#ending h1,
-#ending p{
-position:relative;
-z-index:2;
+text-align:center;
 }
 
 #ending h1{
@@ -342,10 +326,8 @@ margin-bottom:20px;
 
 #ending p{
 font-size:22px;
-opacity:1;
+opacity:0.8;
 }
-
-/* EASTER EGG */
 
 #easterEgg{
 position:fixed;
@@ -378,68 +360,216 @@ font-weight:bold;
 
 <div class="petals"></div>
 
+<!-- WELCOME -->
+
 <section id="welcome">
+
 <h1>Are you ready for the surprise?</h1>
+
 <div class="welcome-buttons">
 <button class="yes-btn" onclick="showScreen('yesScreen')">yes♡</button>
 <button class="no-btn" onclick="showScreen('noScreen')">NO!</button>
 </div>
+
 </section>
+
+<!-- NO -->
 
 <section id="noScreen" class="hidden">
+
 <button class="back-btn" onclick="showScreen('welcome')">← Back</button>
+
 <div style="font-size:120px;">🦆</div>
+
 <h1>HOW DARE YOU 😡</h1>
+
 </section>
 
+<!-- YES -->
+
 <section id="yesScreen" class="hidden">
+
 <h1>
 I AM SORRY I AM NOT NEAR YOU<br>
 BUT I AM SENDING YOU SOMETHING ❤️
 </h1>
-<button class="next-btn" onclick="showScreen('giftScreen')">next →</button>
+
+<button class="next-btn" onclick="showScreen('giftScreen')">
+next →
+</button>
+
 </section>
+
+<!-- GIFT -->
 
 <section id="giftScreen" class="hidden">
+
 <h1>Here's a gift box for you 🎁</h1>
+
 <div class="gift-box" onclick="openGift()"></div>
-<p style="margin-top:30px;opacity:0.7;">Click the gift box</p>
+
+<p style="margin-top:30px;opacity:0.7;">
+Click the gift box
+</p>
+
 </section>
 
+<!-- HUB -->
+
 <section id="hub" class="hidden">
+
 <h1 style="color:white;font-family:'Dancing Script',cursive;font-size:50px;">
 Open Your Gifts 💝
 </h1>
 
 <div class="hub-grid">
-<div class="hub-card" onclick="showScreen('music')">🎵 Music</div>
-<div class="hub-card" onclick="showScreen('photos')">📸 Photos</div>
-<div class="hub-card" onclick="showScreen('letter')">💌 Letter</div>
-<div class="hub-card" onclick="showScreen('ending')">❤️ Ending</div>
+
+<div class="hub-card" onclick="showScreen('music')">
+<span>🎵</span>
+Music
 </div>
+
+<div class="hub-card" onclick="showScreen('photos')">
+<span>📸</span>
+Photos
+</div>
+
+<div class="hub-card" onclick="showScreen('letter')">
+<span>💌</span>
+Letter
+</div>
+
+<div class="hub-card" onclick="showScreen('ending')">
+<span>❤️</span>
+Ending
+</div>
+
+</div>
+
 </section>
+
+<!-- MUSIC -->
 
 <section id="music" class="hidden">
+
 <button class="back-btn" onclick="showScreen('hub')">← Back</button>
+
 <h1>Our Songs 🎵</h1>
+
+<div class="music-grid">
+
+<div class="song-card">
+<img src="photo1.jpg">
+<div class="song-info">
+<h3>Perfect</h3>
+<p>our vibe ❤️</p>
+<audio controls>
+<source src="song1.mp3" type="audio/mpeg">
+</audio>
+</div>
+</div>
+
+<div class="song-card">
+<img src="photo2.jpg">
+<div class="song-info">
+<h3>Waalian</h3>
+<p>late night memories 🌙</p>
+<audio controls>
+<source src="song2.mp3" type="audio/mpeg">
+</audio>
+</div>
+</div>
+
+<div class="song-card">
+<img src="photo3.jpg">
+<div class="song-info">
+<h3>Mi Amor</h3>
+<p>you & me forever ✨</p>
+<audio controls>
+<source src="song3.mp3" type="audio/mpeg">
+</audio>
+</div>
+</div>
+
+</div>
+
 </section>
+
+<!-- PHOTOS -->
 
 <section id="photos" class="hidden">
+
 <button class="back-btn" onclick="showScreen('hub')">← Back</button>
+
 <h1 style="color:white;">Our Memories 📸</h1>
+
+<div class="photos-grid">
+
+<img src="gallery1.jpg">
+<img src="gallery2.jpg">
+<img src="gallery3.jpg">
+<img src="gallery4.jpg">
+
+</div>
+
 </section>
+
+<!-- LETTER -->
 
 <section id="letter" class="hidden">
+
 <button class="back-btn" onclick="showScreen('hub')">← Back</button>
+
 <h1 style="margin-bottom:30px;">A Letter For You 💌</h1>
+
+<div class="letter-box">
+
+<img src="holdinghands.jpg">
+
+<p>
+Siyua baby i am so sorry about my actions and what all i did to you i never meant i have always regreted not talking to you or texting you be it last time or this time.
+</p>
+
+<br>
+
+<p>
+siya i missed you more than u can even think of i swear i genuinely want to apologise for going or as u said abandoning i have always regreted it.
+</p>
+
+<br>
+
+<p>
+i am sorry for this. Siya trust me this time i wont go anywhere i genuinely wont and agr koi ladai bhi huyi ya kuch bhi vaisa hua i will text you pka i wont hide behind my guts.
+</p>
+
+<br>
+
+<p>
+I love you more than words could ever say. Thank you for not letting this end 💕
+</p>
+
+<br>
+
+<p style="text-align:right;">
+Forever yours,<br>
+Your duffer 🌸
+</p>
+
+</div>
+
 </section>
 
+<!-- END -->
+
 <section id="ending" class="hidden">
-<h1>🎂 Happy Birthday Avni! 🎂</h1>
+
+<h1>Thank You For Staying ❤️</h1>
+
 <p>
-May your day be filled with laughter,<br>
-love, happiness and countless beautiful memories ✨
+No matter where life goes,<br>
+you’ll always be special to me.
 </p>
+
 </section>
 
 <div id="easterEgg">I love you ❤️</div>
@@ -447,27 +577,78 @@ love, happiness and countless beautiful memories ✨
 <script>
 
 function hideAll(){
-document.querySelectorAll('section').forEach(s=>s.classList.add('hidden'));
+
+document.querySelectorAll('section').forEach(section=>{
+section.classList.add('hidden');
+});
+
 }
 
 function showScreen(id){
+
 hideAll();
+
 document.getElementById(id).classList.remove('hidden');
-window.scrollTo({top:0,behavior:'smooth'});
+
+window.scrollTo({
+top:0,
+behavior:'smooth'
+});
+
 }
 
 function openGift(){
+
 showScreen('hub');
-confetti({particleCount:300,spread:140,origin:{y:0.6}});
+
+confetti({
+particleCount:300,
+spread:140,
+origin:{y:0.6}
+});
+
 }
+
+function createPetals(){
+
+const petals=document.querySelector('.petals');
+
+for(let i=0;i<30;i++){
+
+const petal=document.createElement('div');
+
+petal.classList.add('petal');
+
+petal.innerHTML='🌸';
+
+petal.style.left=Math.random()*100+'vw';
+
+petal.style.animationDuration=
+(Math.random()*5+5)+'s';
+
+petal.style.fontSize=
+(Math.random()*20+15)+'px';
+
+petals.appendChild(petal);
+
+}
+
+}
+
+createPetals();
 
 let clicks=0;
 
 document.body.addEventListener('click',()=>{
+
 clicks++;
+
 if(clicks===10){
+
 document.getElementById('easterEgg').classList.add('show');
+
 }
+
 });
 
 </script>
